@@ -53,16 +53,16 @@ You can register a singleton factory by calling:
 #### Custom lifeCycles
 Custom lifecycles allow you to control exactly when to reset the nodepency cache. Custom lifecycles can be set up like this:
 
-  var foo = function () {
-    return 'bar';
-  }
+    var foo = function () {
+      return 'bar';
+    }
 
-  nd.lifeCycle('myCustomLifeCycle')
-    .factory('foo', foo);
+    nd.lifeCycle('myCustomLifeCycle')
+      .factory('foo', foo);
 
 This factory will operate like a singleton factory until you call:
 
-  nd.lifeCycle('myCustomLifeCycle').expire();
+    nd.lifeCycle('myCustomLifeCycle').expire();
 
 After calling expire, all cached factory dependencies in the lifecycle will be reset.
 
@@ -70,20 +70,21 @@ After calling expire, all cached factory dependencies in the lifecycle will be r
 
 ## Simple retrieval
 
-  var myObject = nd.instance('myAlreadyRegisteredInstance')
-    , myFactory = nd.factory('myAlreadyRegisteredFactory');
+    var myObject = nd.instance('myAlreadyRegisteredInstance')
+      , myFactory = nd.factory('myAlreadyRegisteredFactory');
 
 ## Injecting into functions
 You can also pass a function to the `inject()` method, and nodependency will return a new function with the parameters already bound to it.
-  //
-  //Register myObject and myFactory
-  //
-  var homeController = function ( myObject, myFactory ) {
-    console.log(myObject, myFactory);
-  }
 
-  var injected = nd.inject(homeController);
+    //
+    //Register myObject and myFactory
+    //
+    var homeController = function ( myObject, myFactory ) {
+      console.log(myObject, myFactory);
+    }
 
-  injected();
-  //myObject, myFactory
+    var injected = nd.inject(homeController);
+
+    injected();
+    //myObject, myFactory
 
