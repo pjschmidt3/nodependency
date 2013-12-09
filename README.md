@@ -7,13 +7,13 @@ A dependency injection framework for node.js with support for custom lifecycles.
 ## Instances
 Registering a simple object as a dependency can be done using `instance()`.
 
-  var nd = require('./nodependency');
+    var nd = require('./nodependency');
 
-  var myObject = {
-    foo: 'bar'
-  };
+    var myObject = {
+      foo: 'bar'
+    };
 
-  nd.instance('myObject', myObject);
+    nd.instance('myObject', myObject);
 
 ## Factories
 The other type of dependendy that can be registered with nodependency is a `factory`. Factories are functions responsible for returning the value of a dependency.
@@ -27,28 +27,28 @@ Custom lifecycles are also supported.
 #### Transient
 Factory dependencies that are registered as part of the transient lifecycle will not be cached. The factory function will be called each time the dependency is injected.
 
-  var nd = require('./nodependency');
+    var nd = require('./nodependency');
 
-  var foo = function () {
-    return 'bar';
-  }
+    var foo = function () {
+      return 'bar';
+    }
 
-  nd.lifeCycle('transient')
-    .factory('foo', foo);
+    nd.lifeCycle('transient')
+      .factory('foo', foo);
 
 Since this is the default lifestyle, you can also do this by calling:
 
-  nd.factory('foo', foo);
+    nd.factory('foo', foo);
 
 #### Singleton
 Factory dependencies that are registered as part of the singleton lifecycle will call the factory method exactly once, and cache the value from then on.
 You can register a singleton factory by calling:
 
-  var foo = function () {
-    return 'bar';
-  }
-  nd.lifeCycle('singleton')
-    .factory('foo', foo);
+    var foo = function () {
+      return 'bar';
+    }
+    nd.lifeCycle('singleton')
+      .factory('foo', foo);
 
 #### Custom lifeCycles
 Custom lifecycles allow you to control exactly when to reset the nodepency cache. Custom lifecycles can be set up like this:
