@@ -126,7 +126,7 @@ describe('Dependency Injection', function () {
         }
 
         var myInjectedFunc = di.inject(myFunc);
-
+        console.log('myInjectedFunc: ', myInjectedFunc);
         var returnValue = myInjectedFunc();
         expect(returnValue).toEqual("barbaz");
       });

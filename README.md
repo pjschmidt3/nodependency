@@ -3,6 +3,10 @@ nodependency
 
 A dependency injection framework for node.js with support for custom lifecycles.
 
+# Why use nodependency?
+Dependency injection allows you to manage all of your app's resources from a central location. You can then register those resources to be injected into functions across your application. Nodependency also supports custom lifecycles, which give you the ability to manage how and when your dependencies are cached.
+
+
 # Registering Dependencies
 ## Instances
 Registering a simple object as a dependency can be done using `instance()`.

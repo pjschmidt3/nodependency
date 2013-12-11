@@ -1,15 +1,9 @@
 {
-  "name": "HeroinJS",
-  "author": "Whiteboard-IT",
-  "main": "./app.js",
-  "directories": {
-    "lib": "./lib"
-  },
+  "name": "nodependency",
+  "author": "Phillip Schmidt",
+  "version": "0.1.1",
+  "main": "./di.js",
   "dependencies": {
-    "bogart": ">0.0.0",
-    "should": "~1.2.2",
-    "mocha": "~1.12.0",
-    "underscore": "~1.5.1",
     "jasmine-node": "~1.11.0"
   }
 }

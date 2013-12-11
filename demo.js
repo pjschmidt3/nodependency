@@ -66,6 +66,8 @@ var injectedController = nd.inject(firstController);
 
 //now call your method without parameters
 var controllerReturn = injectedController();
+
+console.log('controller return: ', controllerReturn);
 // 'bar'
 
 console.log('Getting cached value for factory')
@@ -81,7 +83,6 @@ console.log('Getting factory result after expiry');
 var uncachedFoo = nd.factory('foo');
 
 console.log('Result after lifeCycle expiry: ', uncachedFoo.bar('Dependency injection is the coolest!'));
-
 
 
 
