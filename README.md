@@ -15,7 +15,7 @@ You can download nodependency with npm.
 ## Instances
 Registering a simple object as a dependency can be done using `instance()`.
 
-    var nd = require('./nodependency');
+    var nd = require('nodependency');
 
     var myObject = {
       foo: 'bar'
@@ -35,7 +35,7 @@ Custom lifecycles are also supported.
 #### Transient
 Factory dependencies that are registered as part of the transient lifecycle will not be cached. The factory function will be called each time the dependency is injected.
 
-    var nd = require('./nodependency');
+    var nd = require('nodependency');
 
     var foo = function () {
       return 'bar';
