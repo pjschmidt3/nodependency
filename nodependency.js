@@ -22,7 +22,6 @@
         } else {
           var valueToCache = _resolveDependencies(this.factories[key].factoryMethod)();
           this.cache[key] = valueToCache;
-          console.log(valueToCache);
           return valueToCache;
         }
       },
@@ -87,12 +86,8 @@
     if(type === 'instance') {
       return _getInstance(key);
     } else if (type === 'factory') {
-      var resolvedItem = _resolveDependencies(
-        _getFactory(key)
-        .lifeCycle
-        .resolveFactory(key)
-      );
-      return resolvedItem;
+      var resolvedItem = _resolveDependencies(_getFactory(key).factoryMethod);
+      return resolvedItem();
     }
     throw new Error('Dependency not found: ' + key);
   }
@@ -155,7 +150,8 @@
       instances[key] = instance;
     },
     inject: function ( method ) {
-      return _resolveDependencies(method);
+      var injected = _resolveDependencies(method);
+      return injected;
     }
   }
 
